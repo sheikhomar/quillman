@@ -1,0 +1,17 @@
+[project]
+name = "quillman"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Modal Labs", email = "info@modal.com"},
+]
+dependencies = [
+    "modal>=0.62.201",
+]
+requires-python = "==3.11.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false

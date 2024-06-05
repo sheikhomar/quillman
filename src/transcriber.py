@@ -8,7 +8,7 @@ import time
 from modal import Image, method
 import modal
 
-from .common import stub
+from .common import app
 
 
 MODEL_NAME = "base.en"
@@ -63,7 +63,7 @@ def load_audio(data: bytes, sr: int = 16000):
     return np.frombuffer(out, np.float32).flatten()
 
 
-@stub.cls(
+@app.cls(
     gpu="A10G",
     container_idle_timeout=180,
     image=transcriber_image,

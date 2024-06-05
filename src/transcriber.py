@@ -6,8 +6,10 @@ import tempfile
 import time
 
 from modal import Image, method
+import modal
 
 from .common import stub
+
 
 MODEL_NAME = "base.en"
 
@@ -67,7 +69,9 @@ def load_audio(data: bytes, sr: int = 16000):
     image=transcriber_image,
 )
 class Whisper:
-    def __enter__(self):
+
+    @modal.enter()
+    def init(self):
         import torch
         import whisper
 

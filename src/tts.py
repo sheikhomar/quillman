@@ -11,6 +11,7 @@ import io
 import tempfile
 
 from modal import Image, method
+import modal
 
 from .common import stub
 
@@ -45,7 +46,8 @@ tortoise_image = (
     timeout=180,
 )
 class Tortoise:
-    def __enter__(self):
+    @modal.enter()
+    def init(self):
         """
         Load the model weights into GPU memory when the container starts.
         """
